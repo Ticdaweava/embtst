@@ -1,169 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Clickjacking Proof-of-Concept</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    padding: 20px;
-  }
-  h1 {
-    color: #b00000;
-  }
-  .iframe-container {
-    position: relative;
-    width: 100%;
-    max-width: 1024px;
-    height: 600px;
-    border: 3px solid #b00000;
-    overflow: hidden;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  /* Example overlay to simulate malicious intent */
-  .overlay {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 200px;
-    height: 100px;
-    background: rgba(255, 0, 0, 0.4);
-    z-index: 2;
-    pointer-events: none; /* allows clicks to pass through */
-  }
-</style>
-</head>
-<body>
-  <h1>⚠ Security Demonstration: Clickjacking Risk</h1>
-  <p>This page shows how <strong>[Target Site]</strong> can be embedded without permission.
-     A malicious actor could place invisible or misleading overlays to trick users into clicking
-     something they didn’t intend.</p>
-
-  <div class="iframe-container">
-    <div class="overlay">Malicious Overlay Example</div>
-    <iframe src="https://southlandfisheries.com"></iframe>
-  </div>
-
-  <p><strong>Recommendation:</strong> Add security headers to prevent this:
-    <code>X-Frame-Options: SAMEORIGIN</code> or
-    <code>Content-Security-Policy: frame-ancestors 'self'</code>.
-  </p>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Clickjacking Proof-of-Concept</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    padding: 20px;
-  }
-  h1 {
-    color: #b00000;
-  }
-  .iframe-container {
-    position: relative;
-    width: 100%;
-    max-width: 1024px;
-    height: 600px;
-    border: 3px solid #b00000;
-    overflow: hidden;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  /* Example overlay to simulate malicious intent */
-  .overlay {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 200px;
-    height: 100px;
-    background: rgba(255, 0, 0, 0.4);
-    z-index: 2;
-    pointer-events: none; /* allows clicks to pass through */
-  }
-</style>
-</head>
-<body>
-  <h1>⚠ Security Demonstration: Clickjacking Risk</h1>
-  <p>This page shows how <strong>[Target Site]</strong> can be embedded without permission.
-     A malicious actor could place invisible or misleading overlays to trick users into clicking
-     something they didn’t intend.</p>
-
-  <div class="iframe-container">
-    <div class="overlay">Malicious Overlay Example</div>
-    <iframe src="https://southlandfisheries.com"></iframe>
-  </div>
-
-  <p><strong>Recommendation:</strong> Add security headers to prevent this:
-    <code>X-Frame-Options: SAMEORIGIN</code> or
-    <code>Content-Security-Policy: frame-ancestors 'self'</code>.
-  </p>
-</body>
-</html>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Clickjacking Proof</title>
+<title>Security Warning</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #fafafa;
-    margin: 20px;
-  }
-  .iframe-box {
-    position: relative;
-    width: 100%;
-    max-width: 1024px;
-    height: 600px;
-    border: 2px solid red;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+  body { font-family: Arial, sans-serif; background: #fff0f0; margin: 20px; }
+  h2 { color: red; }
+  .iframe-box { position: relative; width: 100%; max-width: 1024px; height: 600px; border: 3px solid red; box-shadow: 0 0 10px red; }
+  iframe { width: 100%; height: 100%; border: none; }
   .overlay {
-    position: absolute;
-    top: 80px;
-    left: 100px;
-    width: 200px;
-    height: 100px;
-    background: rgba(255, 0, 0, 0.3);
-    z-index: 2;
-    pointer-events: none;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 35px;
-    color: white;
+    position: absolute; top: 100px; left: 120px;
+    width: 300px; height: 150px;
+    background: rgba(255, 0, 0, 0.5);
+    z-index: 2; pointer-events: none;
+    font-weight: bold; text-align: center;
+    padding-top: 55px; color: white; font-size: 18px;
+    border: 2px dashed white;
   }
 </style>
 </head>
 <body>
 
-<h2>⚠ Clickjacking Demonstration</h2>
-<p>This shows how <strong>southlandfisheries.com</strong> can be embedded without restriction.
-A malicious site could place invisible overlays to trick users into clicking unintended areas.</p>
+<h2>⚠ URGENT: Your Store Has Been Embedded Into an Unknown Website</h2>
+<p>This is a live demonstration showing how your store can be loaded inside another site without your permission.
+Attackers can place hidden buttons, steal customer actions, and damage your reputation.
+Immediate action is required to secure your website.</p>
 
 <div class="iframe-box">
-  <div class="overlay">Fake Button</div>
+  <div class="overlay">⚠ Malicious Overlay Active</div>
   <iframe src="https://southlandfisheries.com"></iframe>
 </div>
 
-<p><strong>Fix:</strong> Add <code>X-Frame-Options: SAMEORIGIN</code> or
-<code>Content-Security-Policy: frame-ancestors 'self'</code>.</p>
+<p><strong>Risk:</strong> Your store can be hijacked and misused without your knowledge.<br>
+<strong>Recommended Action:</strong> Add security headers to block unauthorized embedding.</p>
 
 </body>
 </html>
