@@ -1,66 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Security Risk Demonstration – oneupfitness.ca</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      padding: 20px;
-      background-color: #b30000;
-      color: red;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    h2 {
-      margin: 0 0 10px;
-    }
-
-    .notice {
-      background: #fff3cd;
-      color: #856404;
-      border: 1px solid #ffeeba;
-      padding: 12px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 800px;
-      font-size: 15px;
-      border-radius: 6px;
-    }
-
-    iframe {
-      display: block;
-      width: 100%;
-      height: 90vh;
-      border: none;
-      margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Clickjacking Proof-of-Concept</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 20px;
+  }
+  h1 {
+    color: #b00000;
+  }
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    height: 600px;
+    border: 3px solid #b00000;
+    overflow: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  /* Example overlay to simulate malicious intent */
+  .overlay {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 100px;
+    background: rgba(255, 0, 0, 0.4);
+    z-index: 2;
+    pointer-events: none; /* allows clicks to pass through */
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h2>⚠ Security Alert: Unauthorized Embedding Detected</h2>
-    <p>This is a clickjacking vulnerability demonstration for <strong>southlandfisheries.com</strong></p>
-  </header>
+  <h1>⚠ Security Demonstration: Clickjacking Risk</h1>
+  <p>This page shows how <strong>[Target Site]</strong> can be embedded without permission.
+     A malicious actor could place invisible or misleading overlays to trick users into clicking
+     something they didn’t intend.</p>
 
-  <div class="notice">
-    <strong>Context:</strong> The following external website (<code>southlandfisheries.com</code>) has been embedded here without any permission, and without implementing standard security headers such as <code>X-Frame-Options</code> or <code>Content-Security-Policy: frame-ancestors</code>.
-    <br><br>
-    This indicates the site is vulnerable to <em>clickjacking</em> attacks — where attackers can trick users into interacting with hidden elements on the real site (e.g. buttons, logins) while believing they’re on a safe page.
-    <br><br>
-    Developers and site owners are strongly advised to implement frame-busting protections immediately.
+  <div class="iframe-container">
+    <div class="overlay">Malicious Overlay Example</div>
+    <iframe src="https://southlandfisheries.com"></iframe>
   </div>
 
-  <!-- IFRAME DEMONSTRATING THE VULNERABILITY -->
-  <iframe src="http://southlandfisheries.com
-"></iframe>
+  <p><strong>Recommendation:</strong> Add security headers to prevent this:
+    <code>X-Frame-Options: SAMEORIGIN</code> or
+    <code>Content-Security-Policy: frame-ancestors 'self'</code>.
+  </p>
 </body>
 </html>
