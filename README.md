@@ -28,7 +28,7 @@ Immediate action is required to secure your website.</p>
 
 <div class="iframe-box">
   <div class="overlay">⚠ Malicious Overlay Active</div>
-  <iframe src="https://southlandfisheries.com"></iframe>
+  <iframe src="https://www.pineviewpuppies.com"></iframe>
 </div>
 
 <p><strong>Risk:</strong> Your store can be hijacked and misused without your knowledge.<br>
