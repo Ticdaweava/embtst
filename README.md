@@ -5,7 +5,8 @@
 <title>Security Warning</title>
 <style>
   body { font-family: Arial, sans-serif; background: #fff0f0; margin: 20px; }
-  h2 { color: red; }
+  h2 { color: red; animation: blink 1s infinite; }
+  @keyframes blink { 0%, 50%, 100% { opacity: 1; } 25%, 75% { opacity: 0; } }
   .iframe-box { position: relative; width: 100%; max-width: 1024px; height: 600px; border: 3px solid red; box-shadow: 0 0 10px red; }
   iframe { width: 100%; height: 100%; border: none; }
   .overlay {
@@ -16,15 +17,16 @@
     font-weight: bold; text-align: center;
     padding-top: 55px; color: white; font-size: 18px;
     border: 2px dashed white;
+    animation: blink 1s infinite;
   }
 </style>
 </head>
 <body>
 
 <h2>⚠ URGENT: Your Store Has Been Embedded Into an Unknown Website</h2>
-<p>This is a live demonstration showing how your store can be loaded inside another site without your permission.
+<p>This is a live demonstration showing how your store is currently visible inside another site without your permission.
 Attackers can place hidden buttons, steal customer actions, and damage your reputation.
-Immediate action is required to secure your website.</p>
+<strong>Immediate action is required</strong> to secure your website.</p>
 
 <div class="iframe-box">
   <div class="overlay">⚠ Malicious Overlay Active</div>
