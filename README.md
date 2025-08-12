@@ -21,7 +21,11 @@
   }
 </style>
 </head>
-<body>
+<body onload="playAlert()">
+
+<audio id="alertSound" autoplay>
+  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+</audio>
 
 <h2>⚠ URGENT: Your Store Has Been Embedded Into an Unknown Website</h2>
 <p>This is a live demonstration showing how your store is currently visible inside another site without your permission.
@@ -35,6 +39,15 @@ Attackers can place hidden buttons, steal customer actions, and damage your repu
 
 <p><strong>Risk:</strong> Your store can be hijacked and misused without your knowledge.<br>
 <strong>Recommended Action:</strong> Add security headers to block unauthorized embedding.</p>
+
+<script>
+function playAlert() {
+  var sound = document.getElementById("alertSound");
+  sound.play().catch(function(e) {
+    console.log("Autoplay blocked, sound will play on first click.");
+  });
+}
+</script>
 
 </body>
 </html>
